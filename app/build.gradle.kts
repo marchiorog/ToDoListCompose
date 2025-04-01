@@ -52,12 +52,18 @@ android {
 
 dependencies {
 
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+
     val room_version = "2.6.1"
 
+    // Dependência principal do Room
     implementation("androidx.room:room-runtime:$room_version")
-    annotationProcessor("androidx.room:room-compiler:$room_version")
 
+    // KSP para processamento de anotações do Room
     ksp("androidx.room:room-compiler:$room_version")
+
+    // Adicionar room-ktx para usar corrotinas com Room
+    implementation("androidx.room:room-ktx:$room_version")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -75,4 +81,9 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+
+
 }
+
